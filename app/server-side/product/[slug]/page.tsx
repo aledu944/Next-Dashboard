@@ -1,5 +1,6 @@
 import { Product, ProductsResponse } from "@/src/products";
 import { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -48,10 +49,35 @@ export async function generateStaticParams() {
 }
 
 export default async function ProductPage({ params }: Props) {
+    
     const { data: product } = await getProductData(params.slug);
+    const baseUrl = 'https://store.innovacode.online/'
+
     return (
-        <div>
-            <h1>{product.name}</h1>
-        </div>
+        <>
+            <h2>Detalles del producto</h2>
+            <div className="product__container">
+                <div>
+                    <h1>{ product.name }</h1>
+                    <p className="mb-5">{ product.category.name }</p>
+
+                    
+                    <h2 className="mb-1">Descripcion:</h2>
+                    <p className="text-slate-500 text-justify mb-5">{ product.description }</p>
+
+                    <h2 className="mb-1">Precio:</h2>
+                    <p className="text-slate-500 text-justify mb-5">{ product.price }$</p>
+
+                    <button className="btn-primary hover:shadow-md">Agregar a carrito</button>
+                </div>
+                <Image
+                    alt={ product.name }
+                    src={ baseUrl + product.images[0].url }
+                    width={858}
+                    height={858}
+                />
+            </div>
+        </>
+
     );
 }
