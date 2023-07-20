@@ -1,8 +1,9 @@
+import { SideMenu } from '@/src/components'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${nunito.className} flex flex-col md:flex-row`}>
+        <SideMenu/>
+        <main className='w-full md:w-10/12 max-h-screen h-screen overflow-y-scroll p-10'>
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
