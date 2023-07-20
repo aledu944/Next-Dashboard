@@ -7,7 +7,7 @@ export default async function ServerSidePage() {
     const products = await getAllProducts();
     return (
         <>
-            <h1 className="mb-5">Productos SSR</h1>
+            <h1 className="mb-5">Productos - Server Side Rendering</h1>
             <ProductsList products={ products } />
         </>
     );
