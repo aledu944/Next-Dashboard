@@ -12,10 +12,12 @@ export const SideMenuItem = ({ item }: Props) => {
 
     return (
         <Link href={ item.path } className={`nav__menu--item ${ pathname === item.path ? 'nav__link--active' : '' }`}>
-            <span>
+            <span >
                 { item.icon }
             </span>
-            { item.name }
+            <span className='hidden md:block'>
+                { item.name }
+            </span>
         </Link>
     )
 }

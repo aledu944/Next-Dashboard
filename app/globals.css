@@ -39,7 +39,7 @@
     @apply flex items-center gap-5 mb-14 py-3 px-5
   }
   .nav__menu--item{
-    @apply py-3 px-5 flex items-center gap-5 mb-5  rounded-lg transition-all
+    @apply py-3 px-5 flex items-center gap-5 md:mb-5  rounded-lg transition-all
     hover:nav__link--active hover:scale-[1.025] active:scale-95
     
   }
@@ -47,8 +47,13 @@
     @apply gradient text-white shadow-lg 
   }
 
+  /* BOTTOM NAVIGATION */
+  .bottom-nav{
+    @apply fixed md:hidden bottom-2 left-5 right-5 rounded-xl py-4 bg-white shadow-lg shadow-indigo-200 z-50
+  }
+
   .product__list{
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14
   }
 
   .product__card{

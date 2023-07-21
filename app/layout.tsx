@@ -2,6 +2,7 @@ import { SideMenu } from '@/src/components'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
+import { BottomNavigation } from '@/src/components/BottomNavigation'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -17,11 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} flex flex-col md:flex-row`}>
+      <body className={`${nunito.className} flex flex-col md:flex-row relative`}>
         <SideMenu/>
-        <main className='w-full md:w-10/12 max-h-screen h-screen overflow-y-scroll p-10'>
+        <main className='w-full md:w-9/12 lg:w-10/12  h-screen md:overflow-y-scroll p-10'>
           {children}
         </main>
+        <BottomNavigation/>
       </body>
     </html>
   )

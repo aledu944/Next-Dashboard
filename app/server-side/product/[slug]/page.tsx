@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: Props) {
 
     return (
         <>
-            <h2>Detalles del producto</h2>
+            <h2 className="text-3xl mb-4">Detalles del producto</h2>
             <div className="product__container">
                 <div>
                     <h1>{ product.name }</h1>
@@ -71,6 +71,7 @@ export default async function ProductPage({ params }: Props) {
                     <button className="btn-primary hover:shadow-md">Agregar a carrito</button>
                 </div>
                 <Image
+                    className="max-w-xl"
                     alt={ product.name }
                     src={ baseUrl + product.images[0].url }
                     width={858}

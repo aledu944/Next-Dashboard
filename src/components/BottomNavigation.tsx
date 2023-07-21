@@ -1,12 +1,11 @@
+import React from 'react'
 import { MENU_OPTIONS } from '../constants/menu-options'
-import { SideMenuAvatar } from './SideMenuAvatar'
 import { SideMenuItem } from './SideMenuItem'
 
-export const SideMenu = () => {
+export const BottomNavigation = () => {
     return (
-        <nav className='hidden md:block w-full shadow-xl shadow-indigo-100 rounded-3xl sm:w-3/12 lg:w-2/12 p-5 bg-white'>
-            <SideMenuAvatar/>
-            <ul>
+        <nav className='bottom-nav'>
+            <ul className='flex justify-center gap-6 items-center'>
                 {
                     MENU_OPTIONS.map(item => (
                         <SideMenuItem key={ item.path } item={ item }/>
