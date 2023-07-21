@@ -1,5 +1,6 @@
 import { IoServerOutline, IoHomeOutline } from 'react-icons/io5'
 import { GoDeviceDesktop } from 'react-icons/go'
+import { BsJournalCheck } from 'react-icons/bs'
 
 export const MENU_OPTIONS = [
     {
@@ -16,5 +17,10 @@ export const MENU_OPTIONS = [
         name: 'Client Side',
         path: '/client-side',
         icon: <GoDeviceDesktop size={ 20 }/>
+    },
+    {
+        name: 'Tasks',
+        path: '/tasks',
+        icon: <BsJournalCheck size={ 20 }/>
     },
 ]
