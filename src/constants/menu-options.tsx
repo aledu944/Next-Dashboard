@@ -1,4 +1,4 @@
-import { IoServerOutline, IoHomeOutline } from 'react-icons/io5'
+import { IoServerOutline, IoHomeOutline, IoLogOutOutline } from 'react-icons/io5'
 import { GoDeviceDesktop } from 'react-icons/go'
 import { BsJournalCheck } from 'react-icons/bs'
 

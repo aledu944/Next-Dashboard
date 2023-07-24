@@ -1,17 +1,24 @@
 import Image from 'next/image'
-import React from 'react'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
 
-export const SideMenuAvatar = () => {
+export const SideMenuAvatar = async () => {
+    const session = await getServerSession(authOptions);
+
+    const image = session?.user?.image ?? 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    const name = session?.user?.name ?? 'Nombre usuario'
+
+
     return (
         <div className='nav__menu--avatar'>
             <Image
-                className='rounded-full max-h-10 object-cover max-w-[40px]'
-                src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                height={ 50 }
-                width={ 50 }
+                className='rounded-full object-cover max-w-[80px]'
+                src={ image }
+                height={ 80 }
+                width={ 80 }
                 alt='Nombre Usuario'
             />
-            <p>Nombre Usuario</p>
+            <p className='text-xl font-bold'>{ name }</p>
         </div>
     )
 }
