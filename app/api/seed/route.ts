@@ -1,37 +1,29 @@
 import prisma from '@/src/lib/prisma'
 import { NextResponse, NextRequest } from 'next/server'
+import bcrypt from 'bcryptjs';
 
 export async function GET(request: Request) { 
 
 
     await prisma.task.deleteMany();
+    await prisma.user.deleteMany();
 
-    const tasks = await prisma.task.createMany({
-        data: [
-            {
-                title: 'Tarea 1',
-                description: 'Descripcion de la tarea 1',
-            },
-            {
-                title: 'Tarea 2',
-                description: 'Descripcion de la tarea 2',
-            },
-            {
-                title: 'Tarea 3',
-                description: 'Descripcion de la tarea 1',
-            },
-            {
-                title: 'Tarea 4',
-                description: 'Descripcion de la tarea 4',
-            },
-            {
-                title: 'Tarea 5',
-                description: 'Descripcion de la tarea 5',
+
+    const user = await prisma.user.create({
+        data: {
+            email: 'admin@innovacode.online',
+            password: bcrypt.hashSync('123456'),
+            name: 'Innova Code',
+            image: 'https://lh3.googleusercontent.com/a/AAcHTtfNj1wKEavkDynCql_1qI9opNtoUTDJr1uOfHYtbCCCmw=s96-c',
+            tasks: {
+                create: {
+                    title: 'Servidor Discord',
+                    description: 'Crear servidos y canales de Discord'
+                }
             }
-        ]
+        }
     })
-
     return NextResponse.json({
-        tasks
+        user
     })
 }

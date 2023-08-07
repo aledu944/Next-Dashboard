@@ -21,7 +21,6 @@ const getAllProducts =  async (): Promise<ProductsData[]> => {
         { cache:'no-store' }
     )
     .then(res => res.json() )
-    console.log(data);
     return data;
 }
 

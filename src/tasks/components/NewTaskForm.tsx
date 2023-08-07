@@ -1,16 +1,20 @@
 'use client'
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { newTask } from '../actions/actions';
 
 export const NewTaskForm = () => {
 
-
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        newTask(title, description)
+    }
 
     return (
-        <form action={ () => newTask( title, description ) } className='task__form'>
+        <form onSubmit={handleSubmit} className='task__form'>
             
             <div className='mb-3 flex flex-col min-w-md'>
                 <label id='title' className='text-slate-500'>Titulo</label>

@@ -75,5 +75,10 @@
   .task__form {
     @apply mx-auto max-w-md mb-10
   }
+
+  /* LOGIN */
+  .login__form{
+    @apply max-w-md m-auto
+  }
 }
 

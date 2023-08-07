@@ -14,7 +14,6 @@ export const useProducts = () => {
             setIsLoading( true );
             const { data: { data } } = await axios.get<ProductsResponse>('https://store.innovacode.online/api/products');
             setProducts( data )
-            console.log(products);
             setIsLoading( false );
         } catch (error) {
             
