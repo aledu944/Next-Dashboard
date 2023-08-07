@@ -1,15 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Dashboard
 
-## Getting Started
+Preview: 
+<img src="./public/preview.png"/>
 
-First, run the development server:
-
+## Install project
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm install
+```
+
+## Run Database
+```bash
+docker compose up -d
+npx prisma db pull
+npx prisma generate 
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
